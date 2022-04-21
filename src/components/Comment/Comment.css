@@ -1,0 +1,9 @@
+.Text{
+    padding-top: 6px;
+    border-radius: 20px;
+    width: 80px;
+    height: 100px;
+    border-color: azure;
+    text-align: center;
+    margin-top: 30px;
+}
