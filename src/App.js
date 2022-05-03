@@ -1,13 +1,30 @@
-import './App.css';
-import {Button} from './Component/Count/Button/Button'
-import{Count} from './Component/Count/Count'
+import { useState } from 'react';
+import './App.css'
+import AddUser from './Component/Count/AddUser';
+import UserList from './Component/Count/UsersList';
+
 
 function App() {
+const [userList, setUserList] = useState([])
+
+const addUserHandler = (uName, uage)=>{
+
+  setUserList(prevUserList=>{
+    return[...prevUserList, {name: uName, age: uage, id:Math.random().toString()}]
+  })
+}
+
+function DeletUSer(id){
+  setUserList((prev) => {
+     return prev.filter((el) => el.id !== id)
+  })
+}
+
+
   return (
     <div className="App">
-    <Button title='+'/>
-    <Count counter='0'/>
-    <Button title='-'/>
+    <AddUser onAddUser={addUserHandler}/>
+    <UserList users={userList} onDelete={DeletUSer}/>
 
     </div>
   );
