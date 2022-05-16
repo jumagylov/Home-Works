@@ -13,12 +13,13 @@ const ModalOverlay = props => {
 }
 const portalElemenet = document.getElementById('overlays')
 
+
 const Modal = (props) => {
  return (
      <Fragment>
 
-     {createPortal(<Backdrop />,portalElemenet)}
-     {createPortal(<ModalOverlay>{props.children}</ModalOverlay>,portalElemenet)}
+     {createPortal(<Backdrop  onCloseCart={props.onCloseCart} />,portalElemenet)}
+     {createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalElemenet)}
 
      </Fragment>
  )
